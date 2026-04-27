@@ -1,8 +1,6 @@
 # Flask app stub 
 from flask import Flask
 
-API_KEY = "sk-1234567890abcdefghijklmnopqrst"  # Fake API key
-
 app = Flask(__name__)
 
 @app.route("/")
