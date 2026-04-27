@@ -17,5 +17,14 @@ jobs:
       - name: Install dependencies
         run: pip install flask
 
+      - name: Scan for secrets (Gitleaks)
+        uses: gitleaks/gitleaks-action@v2
+
+      - name: Scan code for bugs (Semgrep)
+        uses: returntocorp/semgrep-action@v1
+
+      - name: Check for vulnerable dependencies (pip-audit)
+        run: pip install pip-audit && pip-audit
+
       - name: Run tests
         run: python -m pytest tests/ || echo "No tests yet"
